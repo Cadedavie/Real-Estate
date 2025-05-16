@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - DreamHome</title>
+    <link rel="stylesheet" href="property.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DreamHome</h1>
+            <nav>
+                <ul>
+                    <li><a href="inde.html">Home</a></li>
+                    <li><a href="listings.html">Listings</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><main class="container">
+    <h2>Modern Family Home</h2>
+    <div class="property-details">
+        <img src="/images/luku.jpg" alt="Modern Family Home" style="width:100%; max-height: 400px; object-fit:cover; border-radius: 10px;">
+        <p><strong>Location:</strong> Nairobi</p>
+        <p><strong>Price:</strong> KES 8,500,000</p>
+        <p><strong>Description:</strong> This spacious 4-bedroom modern family house features a large kitchen, private garden, and is located in a serene gated community just minutes from the CBD.</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>4 Bedrooms, 3 Bathrooms</li>
+            <li>Modern kitchen with granite counters</li>
+            <li>Private parking and security</li>
+            <li>High-speed internet ready</li>
+        </ul>
+        <a href="contact.html" class="btn" style="display:inline-block; margin-top:20px; background:#27ae60; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Inquire Now</a>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 DreamHome. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const property = JSON.parse(localStorage.getItem('selectedProperty'));
+    if (!property) {
+      document.querySelector('.property-details').innerHTML = '<p>Property details not found.</p>';
+      return;
+    }
+
+    document.querySelector('.property-details').innerHTML = `
+      <img src="${property.image}" alt="${property.title}" style="width:100%; max-height: 400px; object-fit:cover; border-radius: 10px;">
+      <p><strong>Location:</strong> ${property.location}</p>
+      <p><strong>Price:</strong> KES ${property.price.toLocaleString()}</p>
+      <p><strong>Description:</strong> ${property.description}</p>
+      <p><strong>Features:</strong></p>
+      <ul>
+        ${property.features.map(feature => <li>${feature}</li>).join('')}
+      </ul>
+      <a href="contact.html" class="btn" style="display:inline-block; margin-top:20px; background:#27ae60; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Inquire Now</a>
+    `;
+  });
+</script>
+</body>
+</html>

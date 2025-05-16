@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamHome Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/739ceede28.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div id="Home">
+     <header>
+        <div class="container">
+            <h1>DreamHome</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#listings-section">Listings</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact-us">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+    <div class="container">
+        <h2>Find Your Perfect Home</h2>
+        <form id="search-form" action="listings.html" method="get">
+            <input type="text" placeholder="Location">
+            <input type="number" placeholder="Max Price">
+            <select>
+                <option>House</option>
+                <option>Apartment</option>
+                <option>Land</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+
+<section class="featured">
+    <div class="container">
+        <h3>Featured Properties</h3>
+        <div class="properties">
+            <div class="property-card">
+                <img src="/images/luku.jpg" alt="House 1">
+                <h4>Modern Family Home</h4>
+                <p>Nairobi, KES 8,500,000</p>
+                <a href="property.html">View Details</a>
+            </div>
+            <div class="property-card">
+                <img src="/images/kitenge.jpg" alt="Apartment 1">
+                <h4>City View Apartment</h4>
+                <p>Westlands, KES 5,200,000</p>
+                <a href="property.html">View Details</a>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+</section>
+   </div>
+
+<section id="about" class="about-section container">
+  <h2>About DreamHome</h2>
+  <p>
+    DreamHome is your trusted partner in finding the perfect property in Kenya. 
+    Whether you’re looking for a cozy apartment by the coast or a spacious family home 
+    in the city, we offer personalized services tailored to your needs.
+  </p>
+  <p>
+    Our team of real estate experts is committed to helping you make informed decisions 
+    with transparency and integrity. Discover your dream home with us today!
+  </p>
+</section>
+<!-- 
+listings-section -->
+<div id="listings-section">
+      </header><main class="container">
+    <h2>Available Properties</h2>
+    <div class="listings">
+        <div class="property-card">
+            <img src="/images/kitenge.jpg" alt="House in Nairobi">
+            <h3>Modern Family Home</h3>
+            <p>4-bedroom house in Nairobi with garden and parking.</p>
+            <p><strong>Price:</strong> KES 8,500,000</p>
+            <a href="property.html" class="btn">View Details</a>
+        </div>
+
+        <div class="property-card">
+            <img src="/images/luku.jpg" alt="Apartment in Mombasa">
+            <h3>Coastal Apartment</h3>
+            <p>2-bedroom beachfront apartment in Mombasa.</p>
+            <p><strong>Price:</strong> KES 6,200,000</p>
+            <a href="property.html" class="btn">View Details</a>
+        </div>
+
+        <div class="property-card">
+            <img src="/images/kitenge.jpg" alt="House in Kisumu">
+            <h3>Lake View Villa</h3>
+            <p>Spacious villa with stunning views of Lake Victoria.</p>
+            <p><strong>Price:</strong> KES 9,800,000</p>
+            <a href="property.html" class="btn">View Details</a>
+        </div>
+    </div>
+</main>
+<script>
+  const properties = [
+    {
+      id: 1,
+      title: 'Modern Family Home',
+      location: 'Nairobi',
+      price: 8500000,
+      description: '4-bedroom house in Nairobi with garden and parking.',
+      features: [
+        '4 Bedrooms, 3 Bathrooms',
+        'Modern kitchen with granite counters',
+        'Private parking and security',
+        'High-speed internet ready'
+      ],
+      image: 'assets/images/house1.jpg'
+    },
+    {
+      id: 2,
+      title: 'Coastal Apartment',
+      location: 'Mombasa',
+      price: 6200000,
+      description: '2-bedroom beachfront apartment in Mombasa.',
+      features: [
+        '2 Bedrooms, 2 Bathrooms',
+        'Ocean view balcony',
+        'Close to shopping centers',
+        'Swimming pool access'
+      ],
+      image: 'assets/images/house2.jpg'
+    },
+    {
+      id: 3,
+      title: 'Lake View Villa',
+      location: 'Kisumu',
+      price: 9800000,
+      description: 'Spacious villa with stunning views of Lake Victoria.',
+      features: [
+        '5 Bedrooms, 4 Bathrooms',
+        'Private dock and boat access',
+        'Large garden and patio',
+        'Modern security system'
+      ],
+      image: 'assets/images/house3.jpg'
+    }
+  ];
+
+  document.querySelectorAll('.property-card .btn').forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Save the selected property data
+      localStorage.setItem('selectedProperty', JSON.stringify(properties[index]));
+      // Redirect to the details page
+      window.location.href = 'property.html';
+    });
+          title: "Modern Family Home",
+      location: "Nairobi",
+      price: 8500000,
+      image: "assets/images/house1.jpg",
+      description: "4-bedroom house in Nairobi with garden and parking."
+    },
+    {
+      title: "Coastal Apartment",
+      location: "Mombasa",
+      price: 6200000,
+      image: "assets/images/house2.jpg",
+      description: "2-bedroom beachfront apartment in Mombasa."
+    },
+    {
+      title: "Lake View Villa",
+      location: "Kisumu",
+      price: 9800000,
+      image: "assets/images/house3.jpg",
+      description: "Spacious villa with stunning views of Lake Victoria."
+    }
+  ;
+
+  function getQueryParam(key) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(key);
+  }
+
+  function renderProperties(filtered) {
+    const container = document.querySelector(".listings");
+    container.innerHTML = "";
+
+    if (filtered.length === 0) {
+      container.innerHTML = "<p>No properties found for this location.</p>";
+      return;
+    }
+
+    filtered.forEach(property => {
+      container.innerHTML += `
+        <div class="property-card">
+          <img src="${property.image}" alt="${property.title}">
+          <h3>${property.title}</h3>
+          <p>${property.description}</p>
+          <a href="property.html" class="btn">View Details</a>
+        </div>
+      `;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const locationQuery = getQueryParam("location");
+    if (locationQuery) {
+      const filtered = properties.filter(p =>
+        p.location.toLowerCase().includes(locationQuery.toLowerCase())
+      );
+      renderProperties(filtered);
+    } else {
+      renderProperties(properties); // Show all if no search
+    }
+
+  });
+</script>
+</div>
+
+
+
+// <!--contact-section-->
+
+
+<div id="contact-us">
+   <h2>Contact Us</h2>
+     <main class="container">
+    <section class="contact-section">
+      
+      <form class="contact-form" id="contactForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for reaching out! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+    </div>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-column brand-column">
+      <img src="images/luku.jpg" alt="DreamHome Logo" class="footer-logo" />
+      <p><i class="fas fa-phone-alt"></i> +254 790560645</p>
+      <p><i class="fas fa-map-marker-alt"></i> Nairobi</p>
+      <p><i class="fas fa-envelope"></i> info@dreamhome.co.ke</p>
+      <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-tiktok"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Company</h3>
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#listings-section">listings</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact-us">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Recommended</h3>
+      <ul>
+        <li><a href="#">Technical Skills</a></li>
+        <li><a href="#">Digital Entrepreneurship</a></li>
+        <li><a href="#">Software Development</a></li>
+        <li><a href="#">Incubation Program</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 DreamHome. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
